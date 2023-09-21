@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:sql/Text.dart';
 
 void main(List<String> args) {
   runApp(MaterialApp(
@@ -21,8 +22,15 @@ class _HomeState extends State<Home> {
       appBar: AppBar(),
       body: GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 4, crossAxisSpacing: 5, mainAxisSpacing: 5),
-        itemBuilder: (context, index) => Container(color: Colors.blue),
+            crossAxisCount: 3, crossAxisSpacing: 5, mainAxisSpacing: 5),
+        itemCount: 4,
+        itemBuilder: (context, index) => InkWell(
+            onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => text(),
+                )),
+            child: Container(color: Colors.pink)),
       ),
     );
   }
